@@ -137,7 +137,7 @@ $data = json_encode($data);
 
 ### Simple
 
-Merely include, require, include_once, or require once the CurlLib/curlwrap_v2.php file as the index.php file shows.
+Merely include, require, include_once, or require_once the CurlLib/curlwrap_v2.php file as the index.php file shows.
 
 ### Composer
 
