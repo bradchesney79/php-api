@@ -1,5 +1,5 @@
 {
-    "name": "agilecrm/php-api",
+    "name": "bradchesney79/php-api",
     "description": "This is the AgileCRM API PHP interface helper library",
     "type": "library",
     "keywords": ["agilecrm", "api", "http"],
