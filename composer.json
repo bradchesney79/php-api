@@ -1,7 +1,6 @@
 {
     "name": "agilecrm/php-api",
     "description": "This is the AgileCRM API PHP interface helper library",
-    "version": "3.0.0",
     "type": "library",
     "keywords": ["agilecrm", "api", "http"],
     "homepage": "https://www.agilecrm.com",
@@ -45,15 +44,9 @@
             "AgileCRM\\Tests": "Tester/"
         }
     },
-    "target-dir": "",
     "minimum-stability": "stable",
-    "repositories": "",
     "config": {
         "use-include-path": true
     },
-    "archive": {},
-    "prefer-stable": true,
-    "scripts": {},
-    "extra": "",
-    "bin": ""
+    "prefer-stable": true
 }
