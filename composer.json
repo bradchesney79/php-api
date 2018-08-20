@@ -37,7 +37,7 @@
     "require-dev": {
     },
     "autoload": {
-        "files": ["index.php"]
+        "files": ["CurlLib/curlwrap_v2.php"]
     },
     "autoload-dev": {
         "psr-0": {

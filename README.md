@@ -10,6 +10,8 @@ Table of contents
 
 **[Requirements](#requirements)**
 
+**[Install](#install)**
+
 **[Usage](#usage)**
 
 **[1 Contact](#1-contact)**
@@ -130,6 +132,28 @@ $data = json_encode($data);
 
 - Two folder CurlLib and Tester
 - Can directly test Tester's any file after setting domain,email and api key of curlwrap_v2.php (CurlLib folder)
+
+## Install
+
+### Simple
+
+Merely include, require, include_once, or require once the CurlLib/curlwrap_v2.php file as the index.php file shows.
+
+### Composer
+
+Modify your project composer.json to include these properties.
+
+```javascript
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/agilecrm/php-api.git"
+        }
+    ],
+    "require": {
+        "agilecrm/php-api":"^3.1.0"
+    },
+```
 
 ## Usage
 
@@ -719,6 +743,5 @@ $currentUser = curl_wrap("users/current-user", null, "GET", NULL);
 echo $currentUser;
 ```
 ----
-
 
 - The curlwrap_v*.php is based on https://gist.github.com/apanzerj/2920899 authored by [Adam Panzer](https://github.com/apanzerj).
