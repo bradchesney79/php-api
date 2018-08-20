@@ -14,7 +14,7 @@ if (function_exists('getenv')) {
 	if (getenv('AGILECRM_DEV')) {
 		define('AGILE_DOMAIN', getenv('AGILECRM_DEV_DOMAIN'));
 		define('AGILE_USER_EMAIL', getenv('AGILECRM_DEV_USER_EMAIL'));
-		define('AGILE_REST_API_KEY', getenv('AGILECRM_DEV_REST_API_KEY');
+		define('AGILE_REST_API_KEY', getenv('AGILECRM_DEV_REST_API_KEY'));
 	}
 	else {
         define('AGILE_DOMAIN', getenv('AGILECRM_DEV_DOMAIN'));
