@@ -1,0 +1,59 @@
+{
+    "name": "agilecrm/php-api",
+    "description": "This is the AgileCRM API PHP interface helper library",
+    "version": "3.0.0",
+    "type": "library",
+    "keywords": ["agilecrm", "api", "http"],
+    "homepage": "https://www.agilecrm.com",
+    "time": "2018-08-20",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adam Panzer",
+            "email": "apanzerj@gmail.com",
+            "homepage": "http://cra.ptaculo.us",
+            "role": "Developer"
+        },
+        {
+            "name": "Ghanshyam Raut",
+            "email": "ghanshyam.raut@agilecrm.com",
+            "homepage": "https://www.agilecrm.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Brad Chesney",
+            "email": "bradchesney79@gmail.com",
+            "homepage": "https://splashfinancial.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "care@agilecrm.com",
+        "issues": "https://github.com/agilecrm/php-api/issues",
+        "source": "https://github.com/agilecrm/php-api",
+        "docs": "https://www.agilecrm.com/api"
+    },
+    "require": {
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "files": ["autoload.php"]
+    },
+    "autoload-dev": {
+        "psr-0": {
+            "AgileCRM\\Tests": "Tester/"
+        }
+    },
+    "target-dir": "",
+    "minimum-stability": "stable",
+    "repositories": "",
+    "config": {
+        "use-include-path": true
+    },
+    "archive": {},
+    "prefer-stable": true,
+    "scripts": {},
+    "extra": "",
+    "bin": ""
+}

@@ -8,51 +8,71 @@
  * @author    Agile CRM developers <Ghanshyam>
  */
 
+// use a dotenv file if exists to set credentials
 
-# Enter your domain name , agile email and agile api key
-define("AGILE_DOMAIN", "YOUR_AGILE_DOMAIN");  # Example : define("domain","jim");
-define("AGILE_USER_EMAIL", "YOUR_AGILE_USER_EMAIL");
-define("AGILE_REST_API_KEY", "YOUR_AGILE_REST_API_KEY");
+if (function_exists('getenv')) {
+	if (getenv('AGILECRM_DEV')) {
+		define('AGILE_DOMAIN', getenv('AGILECRM_DEV_DOMAIN'));
+		define('AGILE_USER_EMAIL', getenv('AGILECRM_DEV_USER_EMAIL'));
+		define('AGILE_REST_API_KEY', getenv('AGILECRM_DEV_REST_API_KEY');
+	}
+	else {
+        define('AGILE_DOMAIN', getenv('AGILECRM_DEV_DOMAIN'));
+        define('AGILE_USER_EMAIL', getenv('AGILECRM_DEV_USER_EMAIL');
+        define('AGILE_REST_API_KEY', getenv('AGILECRM_DEV_REST_API_KEY');
+	}
+}
+
+// if the domain is not set, it is likely the others are unset as well
+// attempt to use hardcoded credentials here
+// HARDCODED DOMAIN, EMAIL, AND API KEY GO HERE
+
+if (!isset(AGILE_DOMAIN) || len(AGILE_DOMAIN < 1)) {
+    # Enter your domain name , agile email and agile api key
+    define('AGILE_DOMAIN', 'YOUR_AGILE_DOMAIN');  # Example : define('domain','jim');
+    define('AGILE_USER_EMAIL', 'YOUR_AGILE_USER_EMAIL');
+    define('AGILE_REST_API_KEY', 'YOUR_AGILE_REST_API_KEY');
+}
 
 function curl_wrap($entity, $data, $method, $content_type) {
     if ($content_type == NULL) {
-        $content_type = "application/json";
+        $content_type = 'application/json';
     }
     
-    $agile_url = "https://" . AGILE_DOMAIN . ".agilecrm.com/dev/api/" . $entity;
+    $agile_url = 'https://' . AGILE_DOMAIN . '.agilecrm.com/dev/api/' . $entity;
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
     curl_setopt($ch, CURLOPT_MAXREDIRS, 10);
     curl_setopt($ch, CURLOPT_UNRESTRICTED_AUTH, true);
     switch ($method) {
-        case "POST":
+        case 'POST':
             $url = $agile_url;
             curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
             curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
             break;
-        case "GET":
+        case 'GET':
             $url = $agile_url;
             curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
             break;
-        case "PUT":
+        case 'PUT':
             $url = $agile_url;
             curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
             curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
             break;
-        case "DELETE":
+        case 'DELETE':
             $url = $agile_url;
             curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
             break;
         default:
             break;
     }
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-        "Content-type : $content_type;", 'Accept : application/json'
+        'Content-type : $content_type;', 'Accept : application/json'
     ));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_USERPWD, AGILE_USER_EMAIL . ':' . AGILE_REST_API_KEY);
