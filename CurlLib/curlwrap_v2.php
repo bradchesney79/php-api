@@ -27,7 +27,7 @@ if (function_exists('getenv')) {
 // attempt to use hardcoded credentials here
 // HARDCODED DOMAIN, EMAIL, AND API KEY GO HERE
 
-if (!isset(AGILE_DOMAIN) || len(AGILE_DOMAIN < 1)) {
+if (!defined(AGILE_DOMAIN) || strlen(trim(AGILE_DOMAIN)) < 1) {
     # Enter your domain name , agile email and agile api key
     define('AGILE_DOMAIN', 'YOUR_AGILE_DOMAIN');  # Example : define('domain','jim');
     define('AGILE_USER_EMAIL', 'YOUR_AGILE_USER_EMAIL');
