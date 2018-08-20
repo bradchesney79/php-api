@@ -11,16 +11,9 @@
 // use a dotenv file if exists to set credentials
 
 if (class_exists('Dotenv')) {
-	if (getenv('AGILECRM_DEV')) {
-		$AGILE_DOMAIN = getenv('AGILECRM_DEV_DOMAIN'));
-		$AGILE_USER_EMAIL = getenv('AGILECRM_DEV_USER_EMAIL'));
-		$AGILE_REST_API_KEY = getenv('AGILECRM_DEV_REST_API_KEY'));
-	}
-	else {
-        $AGILE_DOMAIN = getenv('AGILECRM_DEV_DOMAIN'));
-        $AGILE_USER_EMAIL = getenv('AGILECRM_DEV_USER_EMAIL'));
-        $AGILE_REST_API_KEY = getenv('AGILECRM_DEV_REST_API_KEY'));
-	}
+    $AGILE_DOMAIN = getenv('AGILECRM_DOMAIN'));
+    $AGILE_USER_EMAIL = getenv('AGILECRM_USER_EMAIL'));
+    $AGILE_REST_API_KEY = getenv('AGILECRM_REST_API_KEY'));
 }
 
 // if the domain is not set, it is likely the others are unset as well

@@ -44,7 +44,7 @@
             "AgileCRM\\Tests": "Tester/"
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "config": {
         "use-include-path": true
     },
