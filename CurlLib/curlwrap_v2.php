@@ -10,16 +10,16 @@
 
 // use a dotenv file if exists to set credentials
 
-if (function_exists('getenv')) {
+if (class_exists('Dotenv')) {
 	if (getenv('AGILECRM_DEV')) {
-		define('AGILE_DOMAIN', getenv('AGILECRM_DEV_DOMAIN'));
-		define('AGILE_USER_EMAIL', getenv('AGILECRM_DEV_USER_EMAIL'));
-		define('AGILE_REST_API_KEY', getenv('AGILECRM_DEV_REST_API_KEY'));
+		$AGILE_DOMAIN = getenv('AGILECRM_DEV_DOMAIN'));
+		$AGILE_USER_EMAIL = getenv('AGILECRM_DEV_USER_EMAIL'));
+		$AGILE_REST_API_KEY = getenv('AGILECRM_DEV_REST_API_KEY'));
 	}
 	else {
-        define('AGILE_DOMAIN', getenv('AGILECRM_DEV_DOMAIN'));
-        define('AGILE_USER_EMAIL', getenv('AGILECRM_DEV_USER_EMAIL'));
-        define('AGILE_REST_API_KEY', getenv('AGILECRM_DEV_REST_API_KEY'));
+        $AGILE_DOMAIN = getenv('AGILECRM_DEV_DOMAIN'));
+        $AGILE_USER_EMAIL = getenv('AGILECRM_DEV_USER_EMAIL'));
+        $AGILE_REST_API_KEY = getenv('AGILECRM_DEV_REST_API_KEY'));
 	}
 }
 
@@ -27,19 +27,21 @@ if (function_exists('getenv')) {
 // attempt to use hardcoded credentials here
 // HARDCODED DOMAIN, EMAIL, AND API KEY GO HERE
 
-if (!defined('AGILE_DOMAIN') || strlen(trim(AGILE_DOMAIN)) < 1) {
+if (!isset($AGILE_DOMAIN) || strlen(trim($AGILE_DOMAIN)) < 1) {
     # Enter your domain name , agile email and agile api key
-    define('AGILE_DOMAIN', 'YOUR_AGILE_DOMAIN');  # Example : define('domain','jim');
-    define('AGILE_USER_EMAIL', 'YOUR_AGILE_USER_EMAIL');
-    define('AGILE_REST_API_KEY', 'YOUR_AGILE_REST_API_KEY');
+    $AGILE_DOMAIN = 'YOUR_AGILE_DOMAIN');  # Example : define('domain','jim');
+    $AGILE_USER_EMAIL = 'YOUR_AGILE_USER_EMAIL');
+    $AGILE_REST_API_KEY ='YOUR_AGILE_REST_API_KEY');
 }
+
+
 
 function curl_wrap($entity, $data, $method, $content_type) {
     if ($content_type == NULL) {
         $content_type = 'application/json';
     }
     
-    $agile_url = 'https://' . AGILE_DOMAIN . '.agilecrm.com/dev/api/' . $entity;
+    $agile_url = 'https://' . $AGILE_DOMAIN . '.agilecrm.com/dev/api/' . $entity;
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
@@ -75,7 +77,7 @@ function curl_wrap($entity, $data, $method, $content_type) {
         'Content-type : $content_type;', 'Accept : application/json'
     ));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_USERPWD, AGILE_USER_EMAIL . ':' . AGILE_REST_API_KEY);
+    curl_setopt($ch, CURLOPT_USERPWD, $AGILE_USER_EMAIL . ':' . $AGILE_REST_API_KEY);
     curl_setopt($ch, CURLOPT_TIMEOUT, 120);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
     $output = curl_exec($ch);
